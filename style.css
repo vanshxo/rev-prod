@@ -64,6 +64,7 @@ form {
 }
 
 .form .field {
+  border: none;
   position: relative;
   height: 50px;
   width: 100%;

@@ -64,8 +64,8 @@ a{
             font-family: "Goldman", serif;
   font-weight: 500;
   font-style: normal;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-            color: #FFFFFF;
+  /* filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)); */
+            color: #000000;
             position: absolute;
             right: 20%;
             top: 50%;
@@ -82,7 +82,8 @@ a{
             transform: translateX(-50%);
             height: 25%;
             width: 2px;
-            background: rgb(0, 0, 0);
+            background: green;
+            color:green ;
             opacity: 0;
             animation: fadeIn 1s forwards 1.4s;
         }
@@ -91,33 +92,30 @@ a{
             position: absolute;
             bottom: 20%;
             
-            left: 50%;
-            transform: translateX(-50%);
-            opacity: 0;
-            animation: fadeIn 1s forwards 2.5s;
-            text-align: center;
-            font-family: "Michroma", sans-serif;
-            font-weight: 400;
-            font-style: normal;
-            padding: 8px 15px;
-            border-radius: 20px;
-            background: linear-gradient(to right, #444, #b8b1b1);
-            color: black;
-            transition: all 0.3s ease-in-out;
-            font-size: 1rem;
-            background: rgba(217, 217, 217, 0.37);
-border: 1px solid #FFFFFF;
-box-shadow: -1px 4px 0px rgba(0, 0, 0, 0.25);
-border-radius: 17px;
+            left: 45%;
+            background-color: #c2fbd7;
+  border-radius: 100px;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+  color: green;
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+
         }
 
         .preregis:hover {
-            color: #FFFFFF;
-            /* background: linear-gradient(to right, #000000, #333333); */
-            background: #0A550B;
-border: 1px solid #0A550B;
-box-shadow: -1px 4px 0px rgba(0, 0, 0, 0.25);
-border-radius: 17px;
+            box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+  transform: scale(1.05) rotate(-1deg);
+
         }
 
         .countdown-spinner {
@@ -243,6 +241,9 @@ border-radius: 17px;
     
 }
         @media (max-width: 768px) {
+            .preregis{position: absolute;
+            left:31%;
+            }
     .logo-container {
         position: relative;
         top: 0%; /* Keep vertical position intact */
@@ -290,7 +291,7 @@ border-radius: 17px;
     </style>
 </head>
 <body>
-    <img src="media/image.png" class="background-video">
+    <!-- <img src="" class="background-video"> -->
 
     <div class="wrapper">
         <div class="logo-container">
@@ -300,7 +301,7 @@ border-radius: 17px;
         <div class="separator"></div>
 
         <div class="countdown-container">
-            <div style="color: black; font-size: 30px;text-shadow: #444;" >launching in</div>
+            <div style="color: #2E9A70; font-size: 30px;text-shadow: #444;" >launching in</div>
             <div class="countdown-spinner">
                 <div class="spinner">
                     <span id="days">00</span>
