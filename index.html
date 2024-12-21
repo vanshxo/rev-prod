@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re-verse</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
+    <link rel="icon" href="media/2jNFsMxYinrLaetzrivKfOY4UGK-1.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bebas+Neue&family=Bungee+Tint&family=Goldman:wght@400;700&family=Londrina+Shadow&family=Michroma&family=Monoton&family=Nabla&display=swap" rel="stylesheet">
+    
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: "Michroma", sans-serif;
+            overflow: hidden;
+        }
+a{
+    text-decoration: none;
+}
+        .background-video {
+
+
+
+            background-blend-mode: plus-darker;
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        .wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .logo-container {
+            background-blend-mode: plus-darker;
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+            position: absolute;
+            left: 50%;
+            top: 45%;
+            scale:0.7;
+            transform: translate(-50%, -50%);
+            animation: slideLogo 1s cubic-bezier(.51,1.01,.34,.97) forwards;
+            text-align: center;
+        }
+
+        .countdown-container {
+            font-family: "Goldman", serif;
+  font-weight: 500;
+  font-style: normal;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+            color: #FFFFFF;
+            position: absolute;
+            right: 20%;
+            top: 50%;
+            font-size: 50px;
+            transform: translateY(-50%);
+            animation: slideCountdown 1s cubic-bezier(.51,1.01,.34,.97) forwards;
+            text-align: center;
+        }
+
+        .separator {
+            position: absolute;
+            top: 35%;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 25%;
+            width: 2px;
+            background: rgb(0, 0, 0);
+            opacity: 0;
+            animation: fadeIn 1s forwards 2s;
+        }
+
+        .preregis {
+            position: absolute;
+            bottom: 10%;
+            
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            animation: fadeIn 1s forwards 2.5s;
+            text-align: center;
+            font-family: "Michroma", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            padding: 5px 15px;
+            border-radius: 20px;
+            background: linear-gradient(to right, #444, #b8b1b1);
+            color: black;
+            transition: all 0.3s ease-in-out;
+            font-size: 1rem;
+            background: rgba(217, 217, 217, 0.37);
+border: 1px solid #FFFFFF;
+box-shadow: -1px 4px 0px rgba(0, 0, 0, 0.25);
+border-radius: 17px;
+        }
+
+        .preregis:hover {
+            color: #FFFFFF;
+            /* background: linear-gradient(to right, #000000, #333333); */
+            background: #0A550B;
+border: 1px solid #0A550B;
+box-shadow: -1px 4px 0px rgba(0, 0, 0, 0.25);
+border-radius: 17px;
+        }
+
+        .countdown-spinner {
+            display: flex;
+            position: relative;
+            
+            justify-content: center;
+            gap: 5%;
+            left: 10%;
+        }
+
+        .spinner {
+            width: 30vw;
+            height: 30vw;
+            max-width: 100px;
+            max-height: 100px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: spin 1s linear infinite;
+            background: none;
+        }
+
+        .spinner-content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: rgb(0, 0, 0);
+        }
+
+        .spinner-value {
+            font-family: "Barlow Condensed", serif;
+            font-weight: 1000;
+            font-size: 2.5rem;
+        }
+
+        .spinner-label {
+            position: relative;
+            top: 15%;
+            right: 58%;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-top: 50px;
+        }
+
+        @keyframes slideLogo {
+            0% {
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            100% {
+                left: 10%;
+                transform: translateY(-50%);
+            }
+        }
+
+        @keyframes slideCountdown {
+            0% {
+                right: 50%;
+                transform: translateY(-50%);
+            }
+            100% {
+                right: 15%;
+                transform: translateY(-50%);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+@media (max-width:1386px) {
+    .separator {
+        display: none;
+    }
+    .logo-container img {
+        position: relative;
+        top: -30%; /* Keep vertical position intact */
+        left: 0%;
+        width: 80%;
+        height: 80%;
+    }
+    
+}
+        @media (max-width: 768px) {
+    .logo-container {
+        position: absolute;
+        top: 40%; /* Keep vertical position intact */
+        left: 50%;
+        transform: translateX(-50%); /* Center horizontally */
+        width: 80%;
+    }
+
+    .logo-container img {
+       scale: 1.2;
+        width: 80%;
+        height: 80%;
+    }
+
+    .countdown-container {
+        position: absolute;
+        top:65%;
+        left: 15%;
+        right: auto;
+        transform: translate(-50%, 0);
+        font-size: 30px;
+    }
+
+    .separator {
+        display: none;
+    }
+
+    .spinner {
+        width: 20vw;
+        height: 20vw;
+        max-width: 80px;
+        max-height: 80px;
+    }
+
+    .spinner-value {
+        font-size: 4rem;
+    }
+
+    .spinner-label {
+        font-size: 0.7rem;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <img src="media/image.png" class="background-video">
+
+    <div class="wrapper">
+        <div class="logo-container">
+            <img class="logo-img" src="media/log.svg" alt="img">
+        </div>
+
+        <div class="separator"></div>
+
+        <div class="countdown-container">
+            <div style="color: black; font-size: 30px;" >launching in</div>
+            <div class="countdown-spinner">
+                <div class="spinner">
+                    <span id="days">00</span>
+                    <span class="spinner-label">Days</span>
+                </div>
+                <div class="spinner">
+                    <span id="hours">00</span>
+                    <span class="spinner-label">Hours</span>
+                </div>
+                <div class="spinner">
+                    <span id="minutes">00</span>
+                    <span class="spinner-label">Minutes</span>
+                </div>
+                <div class="spinner">
+                    <span id="seconds">00</span>
+                    <span class="spinner-label">Seconds</span>
+                </div>
+            </div>
+        </div>
+
+        <a href="form.html" class="preregis">REGISTER-NOW!</a>
+    </div>
+
+    <script>
+        const countDownDate = new Date("Jan 26, 2025 00:00:00").getTime();
+
+        setInterval(function () {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").textContent = days;
+            document.getElementById("hours").textContent = hours;
+            document.getElementById("minutes").textContent = minutes;
+            document.getElementById("seconds").textContent = seconds;
+        }, 1000);
+    </script>
+</body>
+</html>
+
+
