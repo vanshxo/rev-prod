@@ -26,7 +26,6 @@ a{
         .background-video {
 
 
-
             background-blend-mode: plus-darker;
             filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
             position: fixed;
@@ -36,7 +35,8 @@ a{
             height: 100%;
             object-fit: cover;
             z-index: -1;
-            opacity: 0.4;
+            opacity: 0.7;
+            animation: bganimation 1.5 ease-in-out 1 forwards;
         }
 
         .wrapper {
@@ -49,14 +49,14 @@ a{
         }
 
         .logo-container {
-            background-blend-mode: plus-darker;
-            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+            /* background-blend-mode: plus-darker; */
+            /* filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)); */
             position: absolute;
             left: 50%;
             top: 45%;
             scale:0.7;
             transform: translate(-50%, -50%);
-            animation: slideLogo 1s cubic-bezier(.51,1.01,.34,.97) forwards;
+            animation: slideLogo 2s cubic-bezier(0,.89,.28,1.01) forwards;
             text-align: center;
         }
 
@@ -71,7 +71,7 @@ a{
             top: 50%;
             font-size: 50px;
             transform: translateY(-50%);
-            animation: slideCountdown 1s cubic-bezier(.51,1.01,.34,.97) forwards;
+            animation: slideCountdown 2s cubic-bezier(.51,1.01,.34,.97) forwards;
             text-align: center;
         }
 
@@ -84,12 +84,12 @@ a{
             width: 2px;
             background: rgb(0, 0, 0);
             opacity: 0;
-            animation: fadeIn 1s forwards 2s;
+            animation: fadeIn 1s forwards 1.4s;
         }
 
         .preregis {
             position: absolute;
-            bottom: 10%;
+            bottom: 20%;
             
             left: 50%;
             transform: translateX(-50%);
@@ -99,7 +99,7 @@ a{
             font-family: "Michroma", sans-serif;
             font-weight: 400;
             font-style: normal;
-            padding: 5px 15px;
+            padding: 15px 15px;
             border-radius: 20px;
             background: linear-gradient(to right, #444, #b8b1b1);
             color: black;
@@ -169,21 +169,53 @@ border-radius: 17px;
 
         @keyframes slideLogo {
             0% {
-                left: 50%;
+                left: 45%;
+                display: none;
+                transform: translate(-50%, -50%);
+                
+            }
+            10%{
+                left: 45%;
+                display: block;
+                transform: translate(-50%, -50%);
+
+            }
+            50%{
+                left: 45%;
                 transform: translate(-50%, -50%);
             }
             100% {
-                left: 10%;
-                transform: translateY(-50%);
+                left: 30%;
+                transform: translateY(-50%,-50%);
             }
         }
-
+        @keyframes bganimation {
+            0%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 0.7;
+            }
+        }
         @keyframes slideCountdown {
-            0% {
-                right: 50%;
+            0%{
+                opacity:0;
+                right: 30%;
+                transform: translateY(-50%);
+            }
+            75%{
+                opacity:  0;
+                right: 30%;
+                transform: translateY(-50%);
+
+            }
+            90% {
+                opacity: 0;
+                right: 30%;
                 transform: translateY(-50%);
             }
             100% {
+                opacity: 1;
                 right: 15%;
                 transform: translateY(-50%);
             }
@@ -212,10 +244,10 @@ border-radius: 17px;
 }
         @media (max-width: 768px) {
     .logo-container {
-        position: absolute;
-        top: 40%; /* Keep vertical position intact */
-        left: 50%;
-        transform: translateX(-50%); /* Center horizontally */
+        position: relative;
+        top: 0%; /* Keep vertical position intact */
+        left: 30%;
+       
         width: 80%;
     }
 
@@ -227,7 +259,7 @@ border-radius: 17px;
 
     .countdown-container {
         position: absolute;
-        top:65%;
+        top:60%;
         left: 15%;
         right: auto;
         transform: translate(-50%, 0);
@@ -267,7 +299,7 @@ border-radius: 17px;
         <div class="separator"></div>
 
         <div class="countdown-container">
-            <div style="color: black; font-size: 30px;" >launching in</div>
+            <div style="color: black; font-size: 30px;text-shadow: #444;" >launching in</div>
             <div class="countdown-spinner">
                 <div class="spinner">
                     <span id="days">00</span>
@@ -303,10 +335,10 @@ border-radius: 17px;
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            document.getElementById("days").textContent = days;
-            document.getElementById("hours").textContent = hours;
-            document.getElementById("minutes").textContent = minutes;
-            document.getElementById("seconds").textContent = seconds;
+            document.getElementById("days").textContent = days>=10?days:'0'+days;
+            document.getElementById("hours").textContent = hours>=10?hours:'0'+hours;
+            document.getElementById("minutes").textContent = minutes>=10?minutes:'0'+minutes;
+            document.getElementById("seconds").textContent = seconds>=10?seconds:'0'+seconds;
         }, 1000);
     </script>
 </body>
