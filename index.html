@@ -35,7 +35,7 @@ a{
             height: 100%;
             object-fit: cover;
             z-index: -1;
-            opacity: 0.7;
+            opacity: 0.3;
             animation: bganimation 1.5 ease-in-out 1 forwards;
         }
 
@@ -49,15 +49,19 @@ a{
         }
 
         .logo-container {
-            /* background-blend-mode: plus-darker; */
+            background-blend-mode: plus-darker;
             /* filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)); */
+            backface-visibility: hidden;
             position: absolute;
             left: 50%;
             top: 45%;
             scale:0.7;
+            border-radius: 30px;
             transform: translate(-50%, -50%);
             animation: slideLogo 2s cubic-bezier(0,.89,.28,1.01) forwards;
             text-align: center;
+            /* background: white; */
+            padding-top: 20px;
         }
 
         .countdown-container {
@@ -65,7 +69,7 @@ a{
   font-weight: 500;
   font-style: normal;
   /* filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)); */
-            color: #000000;
+            color: black;
             position: absolute;
             right: 20%;
             top: 50%;
@@ -82,8 +86,8 @@ a{
             transform: translateX(-50%);
             height: 25%;
             width: 2px;
-            background: green;
-            color:green ;
+            color: black;
+            background-color: black;
             opacity: 0;
             animation: fadeIn 1s forwards 1.4s;
         }
@@ -253,9 +257,9 @@ a{
     }
 
     .logo-container img {
-       scale: 1.2;
+       scale: 1;
         width: 80%;
-        height: 80%;
+        height:80%;
     }
 
     .countdown-container {
@@ -291,7 +295,7 @@ a{
     </style>
 </head>
 <body>
-    <!-- <img src="" class="background-video"> -->
+    <img src="media/WhatsApp Image 2024-12-22 at 21.32.16.jpeg" class="background-video">
 
     <div class="wrapper">
         <div class="logo-container">
@@ -301,7 +305,7 @@ a{
         <div class="separator"></div>
 
         <div class="countdown-container">
-            <div style="color: #2E9A70; font-size: 30px;text-shadow: #444;" >launching in</div>
+            <div style="color: black; font-size: 30px;text-shadow: #444;" >Going live in</div>
             <div class="countdown-spinner">
                 <div class="spinner">
                     <span id="days">00</span>
